@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.class == User
       user_home_index_path
-    elsif resource.class == Company
-      openings_path
+    elsif resource.class == Employer
+      employer_home_index_path
     end 
   end
 
@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :user      
       new_user_session_path
-    elsif resource_or_scope == :company
-      openings_path
+    elsif resource_or_scope == :employer
+      new_employer_session_path
     end 
   end
 
@@ -26,13 +26,13 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     
-    # if resource_class == Company
-    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :about, :logo])
-    #   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :about, :logo])
-    # elsif resource_class == User
+    if resource_class == Employer
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :about])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :about])
+    elsif resource_class == User
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :about])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name, :about])
 
-    # end
+    end
   end
 end
