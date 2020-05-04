@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :openings
   namespace :employer do
     get 'home/index'
   end

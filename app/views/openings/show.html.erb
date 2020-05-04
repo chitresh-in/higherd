@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @opening.profile %>
+</p>
+
+<p>
+  <strong>Ctc:</strong>
+  <%= @opening.ctc %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @opening.location %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @opening.deadline %>
+</p>
+
+<%= link_to 'Edit', edit_opening_path(@opening) %> |
+<%= link_to 'Back', openings_path %>
