@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
 
+  namespace :user do
+    get 'job_application/index'
+  end
   resources :openings
   namespace :employer do
     get 'home/index'
