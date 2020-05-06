@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+         has_many :job_applications
+         has_many :openings, through: :job_applications
+
+
          def self.create_from_provider_data(provider_data)
           where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do | user |
             user.email = provider_data.info.email
@@ -13,3 +17,4 @@ class User < ApplicationRecord
           end
         end
 end
+
