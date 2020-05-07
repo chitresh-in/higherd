@@ -4,6 +4,8 @@ class OpeningsController < ApplicationController
 
   # GET /openings
   # GET /openings.json
+
+
   def index
     @openings = Opening.all
   end

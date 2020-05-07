@@ -19,6 +19,8 @@
   <strong>Deadline:</strong>
   <%= @opening.deadline %>
 </p>
-
+<% if user_signed_in? && @opening.user_can_apply(current_user.id)%>
+<%= link_to 'Apply', job_application_path(@opening), method: :post %>
+<%end%>
 <%= link_to 'Edit', edit_opening_path(@opening) %> |
 <%= link_to 'Back', openings_path %>
