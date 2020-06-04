@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :placement_cell do
+    get 'home/index'
+  end
+
+  devise_for :placement_cells
+  
  get 'user/job_application/index', to: 'user/job_application#index', as: 'job_applications'
   post 'user/job_application/apply/:opening_id/', to: 'user/job_application#create', as: 'job_application'
   

@@ -1,0 +1,10 @@
+<h1>placement_cell::Home#index</h1>
+<p>Find me in app/views/placement_cell/home/index.html.erb</p>
+<% if placement_cell_signed_in? %>
+  <p><%= current_placement_cell.email %></p>
+  <p><%= link_to "Sign Out", destroy_placement_cell_session_path, method: :delete  %></p>
+  <% else %>
+
+
+<p><%= link_to "Sign In", new_placement_cell_session_path%></p>
+  <% end %>
